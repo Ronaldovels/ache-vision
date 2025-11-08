@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ApiService } from "../services/api.service";
 import type { Product } from "../types/i-product";
 import Modal from "../components/shared/Modal/Modal";
+import "./responsive-pages.css";
 
 // Determina se o produto está aprovado ou defeituoso com base no tipo
 const isProductApproved = (tipo: string): boolean => {

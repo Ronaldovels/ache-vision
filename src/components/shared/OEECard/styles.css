@@ -65,3 +65,79 @@
   transition: width 0.3s ease, background-color 0.3s ease;
   border-radius: 4px;
 }
+
+/* Responsividade Tablet */
+@media (max-width: 1023px) {
+  .oee-card {
+    padding: 1.25rem;
+  }
+  
+  .oee-card-value {
+    font-size: 2rem;
+  }
+  
+  .oee-card-unit {
+    font-size: 1.25rem;
+  }
+  
+  .oee-card-title {
+    font-size: 0.8125rem;
+  }
+  
+  .oee-card-description,
+  .oee-card-meta {
+    font-size: 0.6875rem;
+  }
+}
+
+/* Responsividade Mobile */
+@media (max-width: 767px) {
+  .oee-card {
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .oee-card-header {
+    margin-bottom: 0.75rem;
+  }
+  
+  .oee-card-value {
+    font-size: 1.75rem;
+  }
+  
+  .oee-card-unit {
+    font-size: 1rem;
+  }
+  
+  .oee-card-title {
+    font-size: 0.75rem;
+  }
+  
+  .oee-card-description,
+  .oee-card-meta {
+    font-size: 0.625rem;
+  }
+  
+  .oee-card-body {
+    margin-bottom: 0.75rem;
+  }
+  
+  .oee-card-progress-container {
+    height: 6px;
+  }
+}
+
+/* Mobile pequeno */
+@media (max-width: 480px) {
+  .oee-card {
+    padding: 0.75rem;
+  }
+  
+  .oee-card-value {
+    font-size: 1.5rem;
+  }
+  
+  .oee-card-unit {
+    font-size: 0.875rem;
+  }
+}

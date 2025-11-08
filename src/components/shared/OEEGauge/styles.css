@@ -7,6 +7,8 @@
 
 .oee-gauge-svg {
   overflow: visible;
+  max-width: 100%;
+  height: auto;
 }
 
 .oee-gauge-progress {
@@ -24,4 +26,53 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+/* Responsividade Tablet */
+@media (max-width: 1023px) {
+  .oee-gauge-container {
+    padding: 0.75rem;
+  }
+  
+  .oee-gauge-value {
+    font-size: 1.75rem;
+  }
+  
+  .oee-gauge-title {
+    font-size: 0.8125rem;
+  }
+}
+
+/* Responsividade Mobile */
+@media (max-width: 767px) {
+  .oee-gauge-container {
+    padding: 0.5rem;
+  }
+  
+  .oee-gauge-svg {
+    max-width: 280px;
+  }
+  
+  .oee-gauge-value {
+    font-size: 1.5rem;
+  }
+  
+  .oee-gauge-title {
+    font-size: 0.75rem;
+  }
+}
+
+/* Mobile pequeno */
+@media (max-width: 480px) {
+  .oee-gauge-svg {
+    max-width: 220px;
+  }
+  
+  .oee-gauge-value {
+    font-size: 1.25rem;
+  }
+  
+  .oee-gauge-title {
+    font-size: 0.625rem;
+  }
 }

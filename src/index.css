@@ -166,3 +166,126 @@
 :root {
     @apply bg-white-100;
 }
+
+/* Base responsiva */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Ajustes de tamanho de fonte responsivos */
+@media (max-width: 1023px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 13px;
+    }
+}
+
+/* Utilitários responsivos globais */
+.responsive-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+@media (max-width: 1023px) {
+    .responsive-container {
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .responsive-container {
+        padding: 0.5rem;
+    }
+}
+
+/* Grid responsivo */
+.responsive-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+    .responsive-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width: 1023px) {
+    .responsive-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 0.75rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .responsive-grid {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+}
+
+/* Tabelas responsivas */
+@media (max-width: 1023px) {
+    .responsive-table {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .responsive-table table {
+        min-width: 600px;
+    }
+}
+
+@media (max-width: 767px) {
+    .responsive-table table {
+        min-width: 500px;
+        font-size: 0.875rem;
+    }
+}
+
+/* Imagens responsivas */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Esconder elementos em mobile se necessário */
+@media (max-width: 767px) {
+    .hide-mobile {
+        display: none !important;
+    }
+}
+
+/* Mostrar apenas em mobile */
+.show-mobile {
+    display: none !important;
+}
+
+@media (max-width: 767px) {
+    .show-mobile {
+        display: block !important;
+    }
+}

@@ -85,12 +85,16 @@ const Hero: React.FC = () => {
   // contar ocorrências por dia
   const counts = labels.map(() => 0);
   products.forEach((p) => {
-    if (!p.data) return; // Ignora produtos sem data
-    const date = new Date(p.data);
-    if (isNaN(date.getTime())) return; // Ignora datas inválidas
-    const day = date.toISOString().split("T")[0];
-    const idx = labels.indexOf(day);
-    if (idx >= 0) counts[idx] += 1;
+    try {
+      const productDate = new Date(p.data);
+      if (!isNaN(productDate.getTime())) {
+        const day = productDate.toISOString().split("T")[0];
+        const idx = labels.indexOf(day);
+        if (idx >= 0) counts[idx] += 1;
+      }
+    } catch (error) {
+      console.warn("Data inválida encontrada:", p.data, error);
+    }
   });
 
   // gráfico removido: usamos BentoInfo para métricas diárias/mensais
@@ -158,7 +162,7 @@ const Hero: React.FC = () => {
         />
         <BentoInfo
           header="Taxa de aprovação"
-          infoValue={`${approvalRate}%`}
+          infoValue={approvalRate}
           icon={ChartScatterIcon}
           iconProps={{ size: 40, weight: "fill" } as IconProps}
           gridColumn="col-start-3 col-end-4"
@@ -170,18 +174,28 @@ const Hero: React.FC = () => {
             const today = new Date();
             const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
             return products.filter((p) => {
-              const productDate = new Date(p.data);
-              const productStr = `${productDate.getFullYear()}-${String(productDate.getMonth() + 1).padStart(2, '0')}-${String(productDate.getDate()).padStart(2, '0')}`;
-              return productStr === todayStr;
+              try {
+                const productDate = new Date(p.data);
+                if (isNaN(productDate.getTime())) return false;
+                const productStr = `${productDate.getFullYear()}-${String(productDate.getMonth() + 1).padStart(2, '0')}-${String(productDate.getDate()).padStart(2, '0')}`;
+                return productStr === todayStr;
+              } catch {
+                return false;
+              }
             }).length;
           })()}
           percentageValue={(() => {
             const today = new Date();
             const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
             const todayProducts = products.filter((p) => {
-              const productDate = new Date(p.data);
-              const productStr = `${productDate.getFullYear()}-${String(productDate.getMonth() + 1).padStart(2, '0')}-${String(productDate.getDate()).padStart(2, '0')}`;
-              return productStr === todayStr;
+              try {
+                const productDate = new Date(p.data);
+                if (isNaN(productDate.getTime())) return false;
+                const productStr = `${productDate.getFullYear()}-${String(productDate.getMonth() + 1).padStart(2, '0')}-${String(productDate.getDate()).padStart(2, '0')}`;
+                return productStr === todayStr;
+              } catch {
+                return false;
+              }
             });
             const { aprovados: todayApproved } = ApiService.getAprovedProducts(todayProducts);
             return todayProducts.length > 0 ? Math.round((todayApproved / todayProducts.length) * 100) : 0;
@@ -196,21 +210,31 @@ const Hero: React.FC = () => {
           infoValue={(() => {
             const now = new Date();
             return products.filter((p) => {
-              const d = new Date(p.data);
-              return (
-                d.getFullYear() === now.getFullYear() &&
-                d.getMonth() === now.getMonth()
-              );
+              try {
+                const d = new Date(p.data);
+                if (isNaN(d.getTime())) return false;
+                return (
+                  d.getFullYear() === now.getFullYear() &&
+                  d.getMonth() === now.getMonth()
+                );
+              } catch {
+                return false;
+              }
             }).length;
           })()}
           percentageValue={(() => {
             const now = new Date();
             const monthProducts = products.filter((p) => {
-              const d = new Date(p.data);
-              return (
-                d.getFullYear() === now.getFullYear() &&
-                d.getMonth() === now.getMonth()
-              );
+              try {
+                const d = new Date(p.data);
+                if (isNaN(d.getTime())) return false;
+                return (
+                  d.getFullYear() === now.getFullYear() &&
+                  d.getMonth() === now.getMonth()
+                );
+              } catch {
+                return false;
+              }
             });
             const { aprovados: monthApproved } = ApiService.getAprovedProducts(monthProducts);
             return monthProducts.length > 0 ? Math.round((monthApproved / monthProducts.length) * 100) : 0;

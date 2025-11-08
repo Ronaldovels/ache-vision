@@ -2,6 +2,7 @@
 
 .bento-user {
     @apply flex flex-col p-4 bg-white-50 shadow-sm rounded-md;
+    gap: 1rem;
 }
 
 .bento-header {
@@ -14,6 +15,7 @@
 
 .bento-content {
     @apply flex flex-row gap-4 items-center;
+    flex-wrap: wrap;
 }
 
 .bento-content span:first-child {
@@ -22,4 +24,54 @@
 
 .bento-content span:last-child {
     @apply px-4 py-2 bg-white-200 font-bold rounded-sm text-sm;
+}
+
+/* Responsividade Tablet */
+@media (max-width: 1023px) {
+    .bento-user {
+        padding: 0.75rem;
+    }
+    
+    .bento-header span {
+        font-size: 1.5rem;
+    }
+    
+    .bento-content span:first-child {
+        font-size: 1.5rem;
+    }
+    
+    .bento-content span:last-child {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.75rem;
+    }
+}
+
+/* Responsividade Mobile */
+@media (max-width: 767px) {
+    .bento-user {
+        padding: 0.5rem;
+    }
+    
+    .bento-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .bento-header span {
+        font-size: 1.125rem;
+    }
+    
+    .bento-content {
+        gap: 0.5rem;
+    }
+    
+    .bento-content span:first-child {
+        font-size: 1.125rem;
+    }
+    
+    .bento-content span:last-child {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.625rem;
+    }
 }

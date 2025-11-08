@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ApiService } from "../services/api.service";
 import type { Product } from "../types/i-product";
 import Modal from "../components/shared/Modal/Modal";
+import "./responsive-pages.css";
 import {
   Eye,
   Trash2,

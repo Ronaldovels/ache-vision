@@ -1,0 +1,244 @@
+/* Estilos responsivos para HistoricTable e Consulta */
+
+/* Tablet */
+@media (max-width: 1023px) {
+    .min-h-screen {
+        padding: 1rem !important;
+    }
+    
+    .max-w-7xl {
+        padding: 0;
+    }
+    
+    /* Headers */
+    h1.text-3xl {
+        font-size: 1.875rem !important;
+    }
+    
+    h3.text-lg {
+        font-size: 1rem !important;
+    }
+    
+    /* Botões */
+    button {
+        padding: 0.5rem 0.75rem !important;
+        font-size: 0.875rem !important;
+    }
+    
+    /* Grids */
+    .grid.md\:grid-cols-2,
+    .grid.lg\:grid-cols-4 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .min-h-screen {
+        padding: 0.75rem !important;
+    }
+    
+    /* Headers */
+    h1.text-3xl {
+        font-size: 1.5rem !important;
+    }
+    
+    h2.text-xl {
+        font-size: 1.125rem !important;
+    }
+    
+    h3.text-lg {
+        font-size: 0.875rem !important;
+    }
+    
+    p.text-black-600 {
+        font-size: 0.875rem !important;
+    }
+    
+    /* Flex containers */
+    .flex.justify-between {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 1rem;
+    }
+    
+    .flex.space-x-3,
+    .flex.gap-2 {
+        width: 100%;
+        gap: 0.5rem !important;
+    }
+    
+    /* Botões */
+    button {
+        width: 100%;
+        padding: 0.5rem !important;
+        font-size: 0.75rem !important;
+        justify-content: center;
+    }
+    
+    button svg {
+        width: 16px !important;
+        height: 16px !important;
+    }
+    
+    /* Cards e containers */
+    .bg-white-50.rounded-xl {
+        padding: 1rem !important;
+        border-radius: 0.75rem !important;
+    }
+    
+    /* Grids */
+    .grid.md\:grid-cols-2,
+    .grid.lg\:grid-cols-4,
+    .grid.md\:grid-cols-4 {
+        grid-template-columns: 1fr !important;
+        gap: 0.75rem !important;
+    }
+    
+    /* Tabelas */
+    .overflow-x-auto {
+        margin: 0 -0.75rem;
+        padding: 0 0.75rem;
+    }
+    
+    table {
+        font-size: 0.75rem !important;
+    }
+    
+    table th,
+    table td {
+        padding: 0.5rem !important;
+        white-space: nowrap;
+    }
+    
+    /* Badges e labels */
+    .inline-flex.items-center {
+        padding: 0.375rem 0.5rem !important;
+        font-size: 0.625rem !important;
+    }
+    
+    /* Inputs */
+    input,
+    select {
+        font-size: 0.875rem !important;
+        padding: 0.625rem !important;
+    }
+    
+    input.pl-12 {
+        padding-left: 2.5rem !important;
+    }
+    
+    /* Ícones em inputs */
+    .absolute.left-4 {
+        left: 0.75rem !important;
+    }
+    
+    /* Paginação */
+    .flex.justify-between.items-center.mt-6 {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .flex.space-x-2 {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    /* Range sliders */
+    .flex.items-center.gap-4 {
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 0.5rem !important;
+    }
+    
+    /* Filtros collapse */
+    .mb-8 {
+        margin-bottom: 1rem !important;
+    }
+    
+    .mb-6 {
+        margin-bottom: 0.75rem !important;
+    }
+    
+    .mb-4 {
+        margin-bottom: 0.5rem !important;
+    }
+    
+    /* Scrollbar em mobile */
+    .overflow-x-auto::-webkit-scrollbar {
+        height: 4px;
+    }
+    
+    .overflow-x-auto::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    
+    .overflow-x-auto::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 2px;
+    }
+}
+
+/* Mobile pequeno */
+@media (max-width: 480px) {
+    .min-h-screen {
+        padding: 0.5rem !important;
+    }
+    
+    h1.text-3xl {
+        font-size: 1.25rem !important;
+    }
+    
+    h2.text-xl {
+        font-size: 1rem !important;
+    }
+    
+    .bg-white-50.rounded-xl {
+        padding: 0.75rem !important;
+    }
+    
+    table {
+        font-size: 0.625rem !important;
+    }
+    
+    table th,
+    table td {
+        padding: 0.375rem !important;
+    }
+    
+    button {
+        padding: 0.375rem !important;
+        font-size: 0.625rem !important;
+    }
+    
+    input,
+    select {
+        font-size: 0.75rem !important;
+        padding: 0.5rem !important;
+    }
+}
+
+/* Ajustes específicos para modal em mobile */
+@media (max-width: 767px) {
+    [role="dialog"] {
+        margin: 1rem !important;
+        max-height: calc(100vh - 2rem) !important;
+        overflow-y: auto !important;
+    }
+    
+    [role="dialog"] > div {
+        padding: 1rem !important;
+    }
+}
+
+/* Consulta page - resultados responsivos */
+@media (max-width: 767px) {
+    .grid.grid-cols-1.md\:grid-cols-3 {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .overflow-y-auto {
+        max-height: 60vh !important;
+    }
+}

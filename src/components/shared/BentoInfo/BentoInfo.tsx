@@ -4,7 +4,7 @@ import { type IconProps } from "@phosphor-icons/react";
 
 type BentoInfoProps = {
   header: string;
-  infoValue: number | string;
+  infoValue: number;
   percentageValue?: number;
   icon: React.ElementType<IconProps>;
   iconProps?: IconProps;
@@ -28,7 +28,7 @@ const BentoInfo: React.FC<BentoInfoProps> = ({
     "w-full h-full",
   ].join(" ");
   
-  const showPercentage = percentageValue !== undefined;
+  const showPercentage = percentageValue !== undefined && percentageValue > 0;
   
   return (
     <div className={`bento-box ${gridClasses}`}>
